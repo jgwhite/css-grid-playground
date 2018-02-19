@@ -1,0 +1,182 @@
+<style type="text/css">
+  html, body {
+    margin: 0;
+    height: 100%;
+  }
+
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 165px auto 214px;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+      "toolbar toolbar toolbar"
+      "left-sidebar canvas right-sidebar";
+  }
+
+  .toolbar {
+    grid-area: toolbar;
+    display: flex;
+    padding: 0 4px;
+    background: linear-gradient(
+      rgb(233, 231, 233),
+      rgb(208, 209, 208)
+    );
+    border-bottom: 1px solid rgb(184, 182, 184);
+  }
+
+  .left-sidebar {
+    display: flex;
+    flex-direction: column;
+    grid-area: left-sidebar;
+    background: rgb(236, 236, 236);
+    border-right: 1px solid rgb(184, 184, 184);
+  }
+
+  .canvas {
+    grid-area: canvas;
+    background: white;
+  }
+
+  .right-sidebar {
+    grid-area: right-sidebar;
+    background: rgb(230, 230, 230);
+    border-left: 1px solid rgb(184, 184, 184);
+  }
+
+  .toolbar button {
+    display: block;
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    margin: 0;
+    font-size: 10px;
+    color: rgb(40, 40, 40);
+  }
+  .toolbar button:before {
+    content: '';
+    display: block;
+    margin: 0 auto 4px;
+    background: rgba(0, 0, 0, 0.25);
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+  .toolbar button:active:before {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .toolbar span {
+    flex-grow: 1;
+  }
+
+  .pages-panel {
+    display: flex;
+    background: rgb(243, 243, 243);
+    border-bottom: 1px solid rgb(184, 184, 184);
+    padding: 4px;
+  }
+
+  .pages-panel select {
+    display: block;
+    margin: 0 4px 0 0;
+    flex-grow: 1;
+  }
+  .pages-panel button {
+    display: block;
+    border: 0;
+    margin: 0;
+    padding: 0 4px;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .alignment-panel {
+    display: flex;
+    background: rgb(245, 245, 245);
+    border-bottom: 1px solid rgb(184, 184, 184);
+    padding: 4px;
+    justify-content: space-between;
+  }
+
+  .alignment-panel button {
+    display: block;
+    border: 0;
+    background: transparent;
+    padding: 4px;
+    margin: 4px;
+    font-size: 10px;
+    color: rgb(40, 40, 40);
+    background: rgba(0, 0, 0, 0.25);
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+  }
+  .alignment-panel button:active {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .alignment-panel span {
+    width: 1px;
+    margin: 0 4px;
+    background: rgb(202, 202, 202);
+  }
+</style>
+
+<body class="container">
+  <header class="toolbar">
+    <button>Insert</button>
+    <span></span>
+    <button>Group</button>
+    <button>Ungroup</button>
+    <span></span>
+    <button>Create Symbol</button>
+    <span></span>
+    <button>100%</button>
+    <span></span>
+    <button>Edit</button>
+    <button>Transform</button>
+    <button>Rotate</button>
+    <button>Flatten</button>
+    <span></span>
+    <button>Mask</button>
+    <button>Scale</button>
+    <span></span>
+    <button>Union</button>
+    <button>Subtract</button>
+    <button>Intersect</button>
+    <button>Difference</button>
+    <span></span>
+    <button>Forward</button>
+    <button>Backward</button>
+    <span></span>
+    <button>Mirror</button>
+    <button>Cloud</button>
+    <span></span>
+    <button>View</button>
+    <span></span>
+    <button>Export</button>
+  </header>
+
+  <aside class="left-sidebar">
+    <div class="pages-panel">
+      <select>
+        <option>Page 1</option>
+      </select>
+      <button title="Show Page List">▾</button>
+    </div>
+  </aside>
+  <main class="canvas"></main>
+  <aside class="right-sidebar">
+    <div class="alignment-panel">
+      <button title="Distribute Horizontally"></button>
+      <button title="Distribute Vertically"></button>
+      <span></span>
+      <button title="Align Left"></button>
+      <button title="Align Horizontally"></button>
+      <button title="Align Right"></button>
+      <button title="Align Top"></button>
+      <button title="Align Vertically"></button>
+      <button title="Align Bottom"></button>
+    </div>
+  </aside>
+</body>
